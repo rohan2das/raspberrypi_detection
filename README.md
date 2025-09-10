@@ -39,7 +39,10 @@ cd raspberrypi_detection
 
 ### 2. Create & activate virtual environment
 ```bash
-python3 -m venv venv_detection
+sudo apt update
+sudo apt full-upgrade
+sudo apt install -y python3-picamera2
+python3 -m venv venv_detection --system-site-packages 
 source venv/bin/activate
 ```
 
