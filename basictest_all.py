@@ -7,11 +7,12 @@ from libcamera import Transform
 
 # Start PiCamera stream
 picam2 = Picamera2()
+# specifying the resolution and performing a 180 degree rotation
 picam2.configure(picam2.create_video_configuration(main={"size": (640, 480)}, transform=Transform(hflip=True, vflip=True)))
 picam2.start()
 time.sleep(2)  # warm-up
 
-# ✅ Load YOLOv8 nano model (fastest for CPU)
+# Load YOLOv8 nano model
 model = YOLO("yolov8n.pt")
 
 frame_count = 0
